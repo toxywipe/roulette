@@ -1,9 +1,0 @@
-# Exclude every hidden
-.*
-!/.gitignore
-
-# Exclude every file begin with config
-config/config*
-
-public/upload/*
-!public/upload/.gitkeep

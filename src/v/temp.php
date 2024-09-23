@@ -41,56 +41,13 @@
             <section class="interface">
                 <!-- Liste des étudiants -->
                 <div class="students-list">
-                
-                <?php
-                    // print_r($AllStud);
-
-                    foreach ($AllStud as $student) {
-                        echo "ID: " . $student['id'] . "<br>";
-                        echo "Nom: " . $student['surname'] . "<br>";
-                        echo "Prénom: " . $student['firstname'] . "<br>";
-                        echo "Classe: " . $student['nameClass'] . "<br>";
-                        echo "LDAP: " . $student['ldap'] . "<br>";
-                        echo "Passage: " . $student['passage'] . "<br>";
-                        echo "Absence: " . $student['absence'] . "<br>";
-                        echo "Note Addition: " . $student['noteaddition'] . "<br>";
-                        echo "Note Total: " . $student['notetotal'] . "<br>";
-                        echo "Moyenne: " . $student['average'] . "<br><br>";
-                    }
-
-                    // echo "<table border='1'>";
-                    // echo "<tr>
-                    //         <th>ID</th>
-                    //         <th>Nom</th>
-                    //         <th>Prénom</th>
-                    //         <th>Classe</th>
-                    //         <th>LDAP</th>
-                    //         <th>Passage</th>
-                    //         <th>Absence</th>
-                    //         <th>Note Addition</th>
-                    //         <th>Note Total</th>
-                    //         <th>Moyenne</th>
-                    //     </tr>";
-
-                    // foreach ($AllStud as $student) {
-                    //     echo "<tr>";
-                    //     echo "<td>" . $student['id'] . "</td>";
-                    //     echo "<td>" . $student['surname'] . "</td>";
-                    //     echo "<td>" . $student['firstname'] . "</td>";
-                    //     echo "<td>" . $student['nameClass'] . "</td>";
-                    //     echo "<td>" . $student['ldap'] . "</td>";
-                    //     echo "<td>" . $student['passage'] . "</td>";
-                    //     echo "<td>" . $student['absence'] . "</td>";
-                    //     echo "<td>" . $student['noteaddition'] . "</td>";
-                    //     echo "<td>" . $student['notetotal'] . "</td>";
-                    //     echo "<td>" . $student['average'] . "</td>";
-                    //     echo "</tr>";
-                    // }
-
-                    // echo "</table>";
-
-                ?>
-                
+                    <h3>Liste des Étudiants</h3>
+                    <ul>
+                        <li>Efecan ÖZTAS</li>
+                        <li>Ilhan ALTINTOP</li>
+                        <li>Gokhan ASLAN</li>
+                        <!-- Ajoute ici la liste complète des étudiants -->
+                    </ul>
                 </div>
 
                 <!-- Tirage au sort -->

@@ -17,6 +17,8 @@ class modele_student extends connexion_PDO {
             print "Erreur !: " . $e->getMessage();
             die();
         }
+
+
         return $resultat;
     }
     
