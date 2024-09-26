@@ -53,7 +53,7 @@ class modele_class extends connexion_PDO {
             $req->bindValue(':nameClass', $nameClass, PDO::PARAM_STR);
             $req->execute();
 
-            $resultat = $req->fetch(PDO::FETCH_ASSOC);
+            $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             print "Erreur !: " . $e->getMessage();
             die();

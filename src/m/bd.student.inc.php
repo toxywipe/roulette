@@ -45,7 +45,7 @@ class modele_student extends connexion_PDO {
 
         try {
             $req = $this->CNX->prepare("SELECT * FROM student WHERE nameClass = :nameClass AND absence = 0 ORDER BY RAND() LIMIT 1");
-            $req->bindValue(':nameClass', $nameClass, PDO::PARAM_STR);
+            $req->bindValue(':nameClass', $nameClass, PDO::PARAM_INT);
             $req->execute();
 
             $resultat = $req->fetch(PDO::FETCH_ASSOC);

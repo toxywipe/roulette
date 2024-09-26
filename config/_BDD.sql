@@ -9,7 +9,10 @@ CREATE TABLE `class` (
     UNIQUE (`nameClass`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `class` (`nameClass`) VALUES ('BTS SIO');
+INSERT INTO `class` (`nameClass`) VALUES 
+('BTS SIO'),
+('BTS MCO'),
+('BTS NDRC');
 
 
 
@@ -30,35 +33,32 @@ CREATE TABLE `student` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-INSERT INTO `student` (`surname`, `firstname`, `ldap`, `bool`, `passage`, `absence`, `noteaddition`, `notetotal`, `average`) VALUES
-('OZTAS', 'Efecan', 0, 0, 0, 0, 0, NULL, NULL),
-('ALTINTOP', 'Ilhan', 0, 0, 0, 0, 0, NULL, NULL),
-('ASLAN', 'Gokhan', 0, 0, 0, 0, 0, NULL, NULL),
-('BAUDRILLARD', 'Matthéo', 0, 0, 0, 0, 0, NULL, NULL),
-('BENNADI', 'Nabil', 0, 0, 0, 0, 0, NULL, NULL),
-('BERRIDGE', 'Matéo', 0, 0, 0, 0, 0, NULL, NULL),
-('BINET', 'Pierre', 0, 0, 0, 0, 0, NULL, NULL),
-('BLAVIER', 'Nathys', 0, 0, 0, 0, 0, NULL, NULL),
-('CHAFAI', 'Yacine', 0, 0, 0, 0, 0, NULL, NULL),
-('CHANTEREAU--LEBEAU', 'Killian', 0, 0, 0, 0, 0, NULL, NULL),
-('DAUBANGE', 'Noa', 0, 0, 0, 0, 0, NULL, NULL),
-('DIZY', 'Hugo', 0, 0, 0, 0, 0, NULL, NULL),
-('ED-DAHMI', 'Achraf', 0, 0, 0, 0, 0, NULL, NULL),
-('FLAMION', 'Alexis', 0, 0, 0, 0, 0, NULL, NULL),
-('GERARD', 'David', 0, 0, 0, 0, 0, NULL, NULL),
-('GRIFFON--DUMONT', 'Ange-Lubin', 0, 0, 0, 0, 0, NULL, NULL),
-('JAMIN', 'Lilou', 0, 0, 0, 0, 0, NULL, NULL),
-('KUMPS', 'Mathys', 0, 0, 0, 0, 0, NULL, NULL),
-('LEFEVRE', 'Enzo', 0, 0, 0, 0, 0, NULL, NULL),
-('LEONARD', 'Tom', 0, 0, 0, 0, 0, NULL, NULL),
-('MAROT', 'Matthias', 0, 0, 0, 0, 0, NULL, NULL),
-('MASSON', 'Paul', 0, 0, 0, 0, 0, NULL, NULL),
-('MASSON', 'Tommy', 0, 0, 0, 0, 0, NULL, NULL),
-('MOLARD', 'Hugo', 0, 0, 0, 0, 0, NULL, NULL),
-('NORMAND', 'Trystan', 0, 0, 0, 0, 0, NULL, NULL),
-('ROBERT', 'Nathan', 0, 0, 0, 0, 0, NULL, NULL),
-('SCHAAF', 'Enzo', 0, 0, 0, 0, 0, NULL, NULL),
-('SCHMITT', 'Noe', 0, 0, 0, 0, 0, NULL, NULL);
-
-
-UPDATE `student` SET `nameClass` = 'BTS SIO';
+INSERT INTO `student` (`surname`, `firstname`, `nameClass`, `ldap`, `bool`, `passage`, `absence`, `noteaddition`, `notetotal`, `average`) VALUES
+('OZTAS', 'Efecan','BTS SIO', 0, 0, 0, 0, 0, NULL, NULL),
+('ALTINTOP', 'Ilhan','BTS SIO', 0, 0, 0, 0, 0, NULL, NULL),
+('ASLAN', 'Gokhan','BTS SIO', 0, 0, 0, 0, 0, NULL, NULL),
+('BAUDRILLARD', 'Matthéo','BTS SIO', 0, 0, 0, 0, 0, NULL, NULL),
+('BENNADI', 'Nabil','BTS SIO', 0, 0, 0, 0, 0, NULL, NULL),
+('BERRIDGE', 'Matéo','BTS SIO', 0, 0, 0, 0, 0, NULL, NULL),
+('BINET', 'Pierre','BTS NDRC', 0, 0, 0, 0, 0, NULL, NULL),
+('BLAVIER', 'Nathys','BTS NDRC', 0, 0, 0, 0, 0, NULL, NULL),
+('CHAFAI', 'Yacine','BTS MCO', 0, 0, 0, 0, 0, NULL, NULL),
+('CHANTEREAU--LEBEAU', 'Killian','BTS SIO', 0, 0, 0, 0, 0, NULL, NULL),
+('DAUBANGE', 'Noa','BTS NDRC', 0, 0, 0, 0, 0, NULL, NULL),
+('DIZY', 'Hugo','BTS SIO', 0, 0, 0, 0, 0, NULL, NULL),
+('ED-DAHMI', 'Achraf','BTS NDRC', 0, 0, 0, 0, 0, NULL, NULL),
+('FLAMION', 'Alexis','BTS NDRC', 0, 0, 0, 0, 0, NULL, NULL),
+('GERARD', 'David','BTS NDRC', 0, 0, 0, 0, 0, NULL, NULL),
+('GRIFFON--DUMONT', 'Ange-Lubin','BTS SIO', 0, 0, 0, 0, 0, NULL, NULL),
+('JAMIN', 'Lilou','BTS SIO', 0, 0, 0, 0, 0, NULL, NULL),
+('KUMPS', 'Mathys','BTS MCO', 0, 0, 0, 0, 0, NULL, NULL),
+('LEFEVRE', 'Enzo','BTS MCO', 0, 0, 0, 0, 0, NULL, NULL),
+('LEONARD', 'Tom','BTS MCO', 0, 0, 0, 0, 0, NULL, NULL),
+('MAROT', 'Matthias','BTS MCO', 0, 0, 0, 0, 0, NULL, NULL),
+('MASSON', 'Paul','BTS NDRC', 0, 0, 0, 0, 0, NULL, NULL),
+('MASSON', 'Tommy','BTS NDRC', 0, 0, 0, 0, 0, NULL, NULL),
+('MOLARD', 'Hugo','BTS NDRC', 0, 0, 0, 0, 0, NULL, NULL),
+('NORMAND', 'Trystan','BTS NDRC', 0, 0, 0, 0, 0, NULL, NULL),
+('ROBERT', 'Nathan','BTS SIO', 0, 0, 0, 0, 0, NULL, NULL),
+('SCHAAF', 'Enzo','BTS MCO', 0, 0, 0, 0, 0, NULL, NULL),
+('SCHMITT', 'Noe','BTS SIO', 0, 0, 0, 0, 0, NULL, NULL);
