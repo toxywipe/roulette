@@ -69,6 +69,20 @@ class modele_student extends connexion_PDO {
         }
     }
 
+    // Fonction pour marquer un étudiant comme absent
+    public function markStudentAbsent($studentId) {
+        try {
+            $sql = "UPDATE student SET absence = 1 WHERE id = :id";
+            $stmt = $this->CNX->prepare($sql);
+            $stmt->bindParam(':id', $studentId, PDO::PARAM_INT);
+            $stmt->execute();
+            return true; // Succès
+        } catch (PDOException $e) {
+            echo "Erreur lors de la mise à jour de l'absence : " . $e->getMessage();
+            return false; // Échec
+        }
+    }
+
     // Réinitialiser les passages pour une classe
     public function resetPassages($nameClass) {
         try {

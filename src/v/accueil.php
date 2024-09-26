@@ -51,31 +51,31 @@
                     <?php if (isset($etudiantTirer)): ?>
                         <!-- Formulaire pour attribuer une note ou marquer comme absent -->
                         <div class="student-details">
-                        <p>Étudiant sélectionné : 
-                            <span id="selected-student">
-                                <br>
-                                <?php
-                                if (isset($etudiantTirer)) {
-                                        echo $etudiantTirer['surname'] . ' ' . $etudiantTirer['firstname'];
-                                } else {
-                                    echo 'Aucun étudiant sélectionné';
-                                }
-                                ?>
-                            </span>
-                        </p>
+                            <h3> Étudiant sélectionné : </h3>
+                                <span id="selected-student">
+                                    <?php
+                                    if (isset($etudiantTirer)) {
+                                        ?> <br> <h2> <?php echo $etudiantTirer['surname'] . ' ' . $etudiantTirer['firstname']; ?></h2><?php
+                                    } else {
+                                        echo 'Aucun étudiant sélectionné';
+                                    }
+                                    ?>
+                                </span>
 
-                            <label for="note">Attribuer une note :</label>
-                            <select name="note" id="note">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-
-                            <p>Ou</p>
-
-                            <button>Marquer absent</button>
+                            <!-- Formulaire pour attribuer une note ou marquer comme absent -->
+                            <form action="" method="POST">
+                                <h3>Attribuer une note :</h3>
+                                <select name="note" id="note">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <button type="submit" name="Noter">Noter</button>
+                                <p style="text-align: center;"> Ou </p>
+                                <button type="submit" name="absent">Eleves Absent</button>
+                            </form>
                         </div>
                     <?php endif; ?>
                 </div>

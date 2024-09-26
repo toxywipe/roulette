@@ -2,6 +2,8 @@
 // Démarrage de la session
 session_start();
 
+
+
 // Inclusions des modèles
 include_once "src/m/bd.student.inc.php";
 include_once "src/m/bd.class.inc.php";
@@ -33,10 +35,19 @@ if (isset($_POST['tirer'])) {
     }
 }
 
+if (isset($_POST['noter'])) {
+    $noteDef = $_POST['noter'];
+    $STUDENT->setStudentGrade($etudiantTirer,$noteDef);
+}
+
+if (isset($_POST['absent'])) {
+    $STUDENT->markStudentAbsent($etudiantTirer);
+}
+
 // Récupérer l'étudiant tiré et la liste de la session pour l'afficher dans la vue
 $SclassChoisie = isset($_SESSION['classeChoisie']) ? $_SESSION['classeChoisie'] : null;
 $SprintClass = isset($_SESSION['printClass']) ? $_SESSION['printClass'] : null;
-$SetudiantTirer = isset($_SESSION['etudiantTirer']) ? $_SESSION['etudiantTirer'] : null;
+$SetudiantTirer= isset($_SESSION['etudiantTirer']) ? $_SESSION['etudiantTirer'] : null;
 
 
 // Appel des vues pour l'affichage des données
