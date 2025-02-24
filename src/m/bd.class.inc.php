@@ -32,17 +32,17 @@ class modele_class extends connexion_PDO {
         }
     }
 
-    // Supprimer une classe (et les étudiants associés via ON DELETE CASCADE)
-    public function deleteClass($idClass) {
-        try {
-            $req = $this->CNX->prepare("DELETE FROM class WHERE idClass = :idClass");
-            $req->bindValue(':idClass', $idClass, PDO::PARAM_INT);
-            $req->execute();
-        } catch (PDOException $e) {
-            print "Erreur !: " . $e->getMessage();
-            die();
-        }
-    }
+    // Supprimer une classe (et les étudiants associés via ON DELETE CASCADE) 
+    // public function deleteClass($idClass) {
+    //     try {
+    //         $req = $this->CNX->prepare("DELETE FROM class WHERE idClass = :idClass");
+    //         $req->bindValue(':idClass', $idClass, PDO::PARAM_INT);
+    //         $req->execute();
+    //     } catch (PDOException $e) {
+    //         print "Erreur !: " . $e->getMessage();
+    //         die();
+    //     }
+    // }
 
     // Récupérer une classe par son nom
     public function getClassByName($nameClass) {

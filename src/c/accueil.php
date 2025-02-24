@@ -15,9 +15,8 @@ $CLASS = new modele_class();
 
 $AllStud = $STUDENT->getStudent();
 
-
 if (isset($_POST['class'])) {
-    $classeChoisie = $_POST['class'];
+    $classeChoisie = intval($_POST['class']);
     $printClass = $STUDENT->getStudentsByClass($classeChoisie);
     $_SESSION['classeChoisie'] = $classeChoisie;
     $_SESSION['printClass'] = $printClass;

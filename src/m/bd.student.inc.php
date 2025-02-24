@@ -22,15 +22,12 @@ class modele_student extends connexion_PDO {
         return $resultat;
     }
     
-    // Récupérer tous les étudiants d'une classe par son nom
-    public function getStudentsByClass($nameClass) {
+    public function getStudentsByClass($idClass) {
         $resultat = array();
-
         try {
-            $req = $this->CNX->prepare("SELECT * FROM student WHERE nameClass = :nameClass");
-            $req->bindValue(':nameClass', $nameClass, PDO::PARAM_STR);
+            $req = $this->CNX->prepare("SELECT * FROM student WHERE idClass = :idClass");
+            $req->bindValue(':idClass', $idClass, PDO::PARAM_INT);
             $req->execute();
-
             $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             print "Erreur !: " . $e->getMessage();
@@ -38,6 +35,7 @@ class modele_student extends connexion_PDO {
         }
         return $resultat;
     }
+    
 
     // Sélectionner un étudiant aléatoirement dans une classe
     public function drawStudent($nameClass) {
