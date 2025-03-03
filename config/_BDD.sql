@@ -24,9 +24,9 @@ CREATE TABLE `student` (
     `bool` tinyint(1) NOT NULL DEFAULT 0,
     `passage` int(5) NOT NULL DEFAULT 0,
     `absence` tinyint(1) NOT NULL DEFAULT 0,
-    `noteaddition` int(100) DEFAULT NULL,
-    `notetotal` int(10) DEFAULT NULL,
-    `average` int(10) DEFAULT NULL,
+    `noteaddition` FLOAT DEFAULT NULL,
+    `notetotal` FLOAT DEFAULT NULL,
+    `average` FLOAT DEFAULT NULL,
     PRIMARY KEY (`id`),
     FOREIGN KEY (`idClass`) REFERENCES `class`(`idClass`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
