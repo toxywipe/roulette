@@ -20,7 +20,7 @@ class modele_student {
             throw new Exception("Erreur lors de la récupération des étudiants : " . $e->getMessage());
         }
     }
-    
+
     //  Récupérer les étudiants par classe
     public function getStudentsByClass($idClass) {
         try {
@@ -151,20 +151,33 @@ class modele_student {
     }
 
     // Sélectionner un étudiant aléatoirement dans une classe
-    public function drawStudent($nameClass) {
-        $resultat = null;
-
+    public function drawStudent($classeChoisie) {
         try {
-            $req = $this->pdo->prepare("SELECT * FROM student WHERE nameClass = :nameClass AND absence = 0 ORDER BY RAND() LIMIT 1");
-            $req->bindValue(':nameClass', $nameClass, PDO::PARAM_INT);
-            $req->execute();
-
-            $resultat = $req->fetch(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            throw new Exception("Erreur !: " . $e->getMessage());
+            // ✅ Vérifier si la classe sélectionnée est valide
+            if (!$classeChoisie) {
+                throw new Exception("Aucune classe sélectionnée.");
+            }
+    
+            // ✅ Requête SQL : Sélectionne un étudiant aléatoirement dans la classe choisie
+            $sql = "SELECT * FROM student WHERE idClass = :classeChoisie ORDER BY RAND() LIMIT 1";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(':classeChoisie', $classeChoisie, PDO::PARAM_INT);
+            $stmt->execute();
+    
+            // ✅ Récupérer l’étudiant s’il existe
+            $etudiant = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            if (!$etudiant) {
+                throw new Exception("Aucun étudiant trouvé pour cette classe.");
+            }
+    
+            return $etudiant;
+        } catch (Exception $e) {
+            // ✅ Gérer les erreurs et les stocker en session
+            $_SESSION['error'] = $e->getMessage();
+            return null;
         }
-        return $resultat;
-    }
+    }    
 
 }
 ?>

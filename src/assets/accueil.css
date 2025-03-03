@@ -9,7 +9,7 @@
 /* === Header principal === */
 .header-container {
     text-align: center;
-    padding: 30px 0;
+    padding: 40px 0;
     background-color: #103542;
     color: white;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -26,6 +26,7 @@
     justify-content: center;
     background-color: transparent;
     padding: 10px 0;
+    margin-top: 15px;
 }
 
 .nav-links {
@@ -59,6 +60,11 @@
     background: white;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
+}
+
+.container h2 {
+    text-align: center;
+    padding: 10px;
 }
 
 /* === Conteneur principal des classes === */

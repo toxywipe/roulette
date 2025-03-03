@@ -1,23 +1,7 @@
 <?php
-// ✅ Vérifier si la session est active
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
-include_once "src/m/bd.class.inc.php";
-include_once "src/m/bd.student.inc.php";
-
-$CLASS = new modele_class();
-$STUDENT = new modele_student();
-
-// ✅ Récupérer toutes les classes
-$classes = $CLASS->getAllClasses();
-$etudiantTirer = isset($_SESSION['etudiantTirer']) ? $_SESSION['etudiantTirer'] : null;
-$message = isset($_SESSION['message']) ? $_SESSION['message'] : null;
-$error = isset($_SESSION['error']) ? $_SESSION['error'] : null;
-
-// ✅ Nettoyer les messages après affichage
-unset($_SESSION['message'], $_SESSION['error']);
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +9,7 @@ unset($_SESSION['message'], $_SESSION['error']);
 <head>
     <meta charset="UTF-8">
     <title>Projet Roulette - Tirage</title>
-    <link rel="stylesheet" href="src/assets/accueil.css">
+    <link rel="stylesheet" href="src/assets/tirage.css">
 </head>
 <body>
 
@@ -53,7 +37,8 @@ unset($_SESSION['message'], $_SESSION['error']);
     <?php } ?>
 
     <!-- ✅ Sélection de la classe -->
-    <form action="src/c/controllerTirage.php" method="post">
+    <form action="index.php?action=tirage" method="post">
+        <input type="hidden" name="form_type" value="select_class">
         <label for="class">Choisissez une classe :</label>
         <select name="class" id="class" required>
             <option value="">-- Sélectionnez une classe --</option>
@@ -69,7 +54,8 @@ unset($_SESSION['message'], $_SESSION['error']);
     <!-- ✅ Tirage au sort d'un étudiant -->
     <?php if (!empty($_SESSION['classeChoisie'])) { ?>
         <h2>Tirer un étudiant au sort :</h2>
-        <form action="src/c/controllerTirage.php" method="post">
+        <form action="index.php?action=tirage" method="post">
+            <input type="hidden" name="form_type" value="draw_student">
             <button type="submit" name="tirage">Tirer un étudiant</button>
         </form>
     <?php } ?>
@@ -81,7 +67,8 @@ unset($_SESSION['message'], $_SESSION['error']);
 
         <!-- ✅ Formulaire d'attribution de note ou d'absence -->
         <h2>Attribuer une note ou marquer une absence :</h2>
-        <form action="src/c/controllerTirage.php" method="post">
+        <form action="index.php?action=tirage" method="post">
+            <input type="hidden" name="form_type" value="assign_grade">
             <label for="note">Note :</label>
             <input type="number" name="note" min="0" max="20" step="0.5">
             <button type="submit" name="validerNote">Valider</button>
