@@ -1,0 +1,259 @@
+/* === Reset des styles de base === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+/* === Structure générale === */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex-grow: 1;
+}
+
+/* === Footer === */
+footer {
+    text-align: center;
+    padding: 12px;
+    background: #103542;
+    color: white;
+    font-size: 15px;
+    margin-top: auto;
+    width: 100%;
+}
+
+
+/* === Header principal === */
+.header-container {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #103542;
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-container h1 {
+    font-size: 34px;
+    font-weight: bold;
+}
+
+/* === Navbar === */
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    padding: 10px 0;
+    margin-top: 15px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: #F87060;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 18px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.nav-links li a:hover {
+    background: white;
+    color: #103542;
+    transform: scale(1.05);
+}
+
+/* === Conteneur principal === */
+.container {
+    width: 85%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* ✅ Effet carte */
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* === Titres principaux === */
+.container h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #103542;
+    margin-bottom: 15px;
+    border-bottom: 3px solid #F87060;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* === Sélection de classe === */
+.selection-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.selection-form select {
+    width: 80%;
+    max-width: 400px;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #103542;
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: 0.3s;
+}
+
+.selection-form select:focus {
+    outline: none;
+    border-color: #F87060;
+    box-shadow: 0px 0px 10px rgba(248, 112, 96, 0.5);
+}
+
+.selection-form button {
+    background: linear-gradient(135deg, #F87060, #FF6A50);
+    color: white;
+    font-size: 18px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.selection-form button:hover {
+    background: linear-gradient(135deg, #FF6A50, #F87060);
+    transform: scale(1.05);
+}
+
+/* === Conteneur du tirage === */
+.draw-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* === Affichage de l’étudiant tiré === */
+.student-selected {
+    background: #F87060;
+    color: white;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 15px;
+    transform: scale(0.5);
+    opacity: 0;
+    animation: fadeInScale 0.5s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* === Formulaire d’attribution de note === */
+.note-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.note-form input {
+    width: 80%;
+    max-width: 400px;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #103542;
+    border-radius: 8px;
+    background: #f9f9f9;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.note-form input:focus {
+    outline: none;
+    border-color: #F87060;
+    box-shadow: 0px 0px 10px rgba(248, 112, 96, 0.5);
+}
+
+.note-form button {
+    background: linear-gradient(135deg, #F87060, #FF6A50);
+    color: white;
+    font-size: 18px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.note-form button:hover {
+    background: linear-gradient(135deg, #FF6A50, #F87060);
+    transform: scale(1.05);
+}
+
+/* === Messages (erreur & succès) === */
+.message-success, .message-error {
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 12px;
+    text-align: center;
+    margin-top: 15px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.message-success {
+    background: #3ecf8e;
+    color: white;
+}
+
+.message-error {
+    background: #ff4d4d;
+    color: white;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* === Footer === */
+footer {
+    text-align: center;
+    padding: 12px;
+    background: #103542;
+    color: white;
+    font-size: 15px;
+    margin-top: auto; 
+    width: 100%;
+}
