@@ -30,26 +30,29 @@ if (session_status() === PHP_SESSION_NONE) {
     <h2>Liste des Classes et Étudiants</h2>
 
     <?php if (!empty($classes)) { ?>
-        <?php foreach ($classes as $classe) { ?>
-            <div class="class-container">
-                <h3><?= htmlspecialchars($classe['nameClass']) ?></h3>
-                <ul>
-                    <?php 
-                    $students = $STUDENT->getStudentsByClass($classe['idClass']);
-                    if (!empty($students)) {
-                        foreach ($students as $student) { ?>
-                            <li><?= htmlspecialchars($student['firstname'] . " " . $student['surname']) ?></li>
-                    <?php }
-                    } else { ?>
-                        <li>Aucun étudiant dans cette classe.</li>
-                    <?php } ?>
-                </ul>
-            </div>
-        <?php } ?>
+        <div class="class-container">
+            <?php foreach ($classes as $classe) { ?>
+                <div class="class-block"> 
+                    <h3><?= htmlspecialchars($classe['nameClass']) ?></h3>
+                    <ul>
+                        <?php 
+                        $students = $STUDENT->getStudentsByClass($classe['idClass']);
+                        if (!empty($students)) {
+                            foreach ($students as $student) { ?>
+                                <li class="student-item"><?= htmlspecialchars($student['firstname'] . " " . $student['surname']) ?></li>
+                        <?php }
+                        } else { ?>
+                            <li class="no-student">Aucun étudiant dans cette classe.</li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            <?php } ?>
+        </div>
     <?php } else { ?>
-        <p>Aucune classe disponible.</p>
+        <p class="no-class">Aucune classe disponible.</p>
     <?php } ?>
 </main>
+
 
 <footer>
     <p>&copy; 2025 Projet Roulette - Tous droits réservés.</p>
