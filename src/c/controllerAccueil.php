@@ -10,7 +10,6 @@ $STUDENT = new modele_student();
 
 $classes = $CLASS->getAllClasses();
 
-// ✅ Inclure la vue accueil.php ici, pas dans controller.php
 include_once "src/v/accueil.php";
 ?>
 

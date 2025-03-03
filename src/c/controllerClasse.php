@@ -32,7 +32,6 @@ if (isset($_GET['supprimerClasse'])) {
     }
 }
 
-//  Redirection vers l'accueil après traitement
 header("Location: v/accueil.php");
 exit();
 ?>
