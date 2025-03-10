@@ -28,7 +28,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <main class="container">
     <h2>Effectuer un tirage au sort</h2>
 
-    <!-- ✅ Affichage des messages -->
+    <!--  Affichage des messages -->
     <?php if ($message) { ?>
         <p class="message-success"><?= htmlspecialchars($message) ?></p>
     <?php } ?>
@@ -36,7 +36,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <p class="message-error"><?= htmlspecialchars($error) ?></p>
     <?php } ?>
 
-    <!-- ✅ Sélection de la classe -->
+    <!--  Sélection de la classe -->
     <form action="index.php?action=tirage" method="post">
         <input type="hidden" name="form_type" value="select_class">
         <label for="class">Choisissez une classe :</label>
@@ -51,7 +51,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <button type="submit">Sélectionner</button>
     </form>
 
-    <!-- ✅ Tirage au sort d'un étudiant -->
+    <!--  Tirage au sort d'un étudiant -->
     <?php if (!empty($_SESSION['classeChoisie'])) { ?>
         <h2>Tirer un étudiant au sort :</h2>
         <form action="index.php?action=tirage" method="post">
@@ -60,12 +60,12 @@ if (session_status() === PHP_SESSION_NONE) {
         </form>
     <?php } ?>
 
-    <!-- ✅ Affichage de l'étudiant tiré et attribution de note -->
+    <!--  Affichage de l'étudiant tiré et attribution de note -->
     <?php if ($etudiantTirer) { ?>
         <h2>Étudiant sélectionné :</h2>
         <p><?= htmlspecialchars($etudiantTirer['firstname'] . " " . $etudiantTirer['surname']) ?></p>
 
-        <!-- ✅ Formulaire d'attribution de note ou d'absence -->
+        <!--  Formulaire d'attribution de note ou d'absence -->
         <h2>Attribuer une note ou marquer une absence :</h2>
         <form action="index.php?action=tirage" method="post">
             <input type="hidden" name="form_type" value="assign_grade">

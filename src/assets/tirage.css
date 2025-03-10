@@ -11,23 +11,10 @@ html, body {
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    min-height: 100vh;
 }
-
-.container {
-    flex-grow: 1;
-}
-
-/* === Footer === */
-footer {
-    text-align: center;
-    padding: 12px;
-    background: #103542;
-    color: white;
-    font-size: 15px;
-    margin-top: auto;
-    width: 100%;
-}
-
 
 /* === Header principal === */
 .header-container {
@@ -47,7 +34,6 @@ footer {
 .navbar {
     display: flex;
     justify-content: center;
-    background-color: transparent;
     padding: 10px 0;
     margin-top: 15px;
 }
@@ -78,28 +64,38 @@ footer {
 /* === Conteneur principal === */
 .container {
     width: 85%;
-    max-width: 800px;
-    margin: 40px auto;
+    margin: auto;
     padding: 30px;
     background: white;
-    border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* ✅ Effet carte */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
     text-align: center;
-    transition: all 0.3s ease-in-out;
+    flex-grow: 1;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
+/* .container {
+    width: 85%;
+    margin: 40px auto;
+    padding: 25px;
+    background: white;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+} */
+
 
 /* === Titres principaux === */
 .container h2 {
     font-size: 28px;
     font-weight: bold;
     color: #103542;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     border-bottom: 3px solid #F87060;
     display: inline-block;
     padding-bottom: 5px;
 }
 
-/* === Sélection de classe === */
+/* === Formulaire de sélection === */
 .selection-form {
     display: flex;
     flex-direction: column;
@@ -126,6 +122,8 @@ footer {
 }
 
 .selection-form button {
+    width: 80%;
+    max-width: 400px;
     background: linear-gradient(135deg, #F87060, #FF6A50);
     color: white;
     font-size: 18px;
@@ -143,8 +141,11 @@ footer {
 
 /* === Conteneur du tirage === */
 .draw-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
     margin-top: 30px;
-    text-align: center;
 }
 
 /* === Affichage de l’étudiant tiré === */
@@ -155,13 +156,54 @@ footer {
     font-size: 22px;
     font-weight: bold;
     border-radius: 12px;
-    display: inline-block;
-    margin-top: 15px;
-    transform: scale(0.5);
-    opacity: 0;
+    width: 60%;
+    max-width: 400px;
+    text-align: center;
     animation: fadeInScale 0.5s ease-out forwards;
 }
 
+/* === Historique des tirages === */
+.history-container {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.history-container h3 {
+    font-size: 22px;
+    color: #103542;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #F87060;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.history-list {
+    list-style: none;
+    padding: 0;
+}
+
+.history-list li {
+    background: #F87060;
+    color: white;
+    margin: 6px 0;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+}
+
+.history-list li:hover {
+    background: #ff5a47;
+}
+
+/* === Animations === */
 @keyframes fadeInScale {
     from {
         transform: scale(0.5);
@@ -173,87 +215,13 @@ footer {
     }
 }
 
-/* === Formulaire d’attribution de note === */
-.note-form {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.note-form input {
-    width: 80%;
-    max-width: 400px;
-    padding: 12px;
-    font-size: 16px;
-    border: 2px solid #103542;
-    border-radius: 8px;
-    background: #f9f9f9;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.note-form input:focus {
-    outline: none;
-    border-color: #F87060;
-    box-shadow: 0px 0px 10px rgba(248, 112, 96, 0.5);
-}
-
-.note-form button {
-    background: linear-gradient(135deg, #F87060, #FF6A50);
-    color: white;
-    font-size: 18px;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.note-form button:hover {
-    background: linear-gradient(135deg, #FF6A50, #F87060);
-    transform: scale(1.05);
-}
-
-/* === Messages (erreur & succès) === */
-.message-success, .message-error {
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-    padding: 12px;
-    text-align: center;
-    margin-top: 15px;
-    opacity: 0;
-    animation: fadeIn 0.5s ease-in-out forwards;
-}
-
-.message-success {
-    background: #3ecf8e;
-    color: white;
-}
-
-.message-error {
-    background: #ff4d4d;
-    color: white;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* === Footer === */
+/* === Footer fixé en bas === */
 footer {
     text-align: center;
     padding: 12px;
     background: #103542;
     color: white;
     font-size: 15px;
-    margin-top: auto; 
     width: 100%;
+    margin-top: auto;
 }
