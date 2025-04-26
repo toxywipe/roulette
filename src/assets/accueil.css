@@ -1,0 +1,191 @@
+/* === Reset des styles de base === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+/* === Header principal === */
+.header-container {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #103542;
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-container h1 {
+    font-size: 34px;
+    font-weight: bold;
+}
+
+/* === Navbar === */
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    padding: 10px 0;
+    margin-top: 15px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: #F87060;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 18px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.nav-links li a:hover {
+    background: white;
+    color: #103542;
+    transform: scale(1.05);
+}
+
+/* === Conteneur principal === */
+.container {
+    width: 85%;
+    margin: 40px auto;
+    padding: 25px;
+    background: white;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+.container h2 {
+    text-align: center;
+    padding: 10px;
+}
+
+/* === Conteneur principal des classes === */
+.class-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* === Bloc de chaque classe 777 === */
+.class-block {
+    background: white;
+    border: 2px solid #103542;
+    padding: 20px;
+    width: 350px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.class-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* === Titre de la classe === */
+.class-block h3 {
+    color: #103542;
+    font-size: 22px;
+    border-bottom: 3px solid #F87060;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+/* === Liste des étudiants === */
+.class-block ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.class-block ul li {
+    background: #F87060;
+    color: white;
+    margin: 6px 0;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+}
+
+.class-block ul li:hover {
+    background: #ff5a47;
+}
+
+/* ✅ Amélioration du style des étudiants */
+.student-item {
+    background: #F87060;
+    color: white;
+    margin: 6px 0;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+}
+
+.student-item:hover {
+    background: #ff5a47;
+}
+
+/* ✅ Affichage si aucun étudiant n’est disponible */
+.no-student {
+    font-style: italic;
+    color: #777;
+    padding: 10px;
+}
+
+/* ✅ Message si aucune classe n'est disponible */
+.no-class {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #103542;
+    margin-top: 20px;
+}
+
+
+/* === Messages (erreur & succès) === */
+.message-success {
+    background: #3ecf8e;
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.message-error {
+    background: #ff4d4d;
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* === Footer === */
+footer {
+    text-align: center;
+    padding: 12px;
+    background: #103542;
+    color: white;
+    font-size: 15px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

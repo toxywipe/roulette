@@ -1,0 +1,393 @@
+/* === Reset des styles de base === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+/* === Structure générale === */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex-grow: 1;
+}
+
+/* === Footer === */
+footer {
+    text-align: center;
+    padding: 12px;
+    background: #103542;
+    color: white;
+    font-size: 15px;
+    margin-top: auto;
+    width: 100%;
+}
+
+/* === Header principal === */
+.header-container {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #103542;
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-container h1 {
+    font-size: 34px;
+    font-weight: bold;
+}
+
+/* === Navbar === */
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    padding: 10px 0;
+    margin-top: 15px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: #F87060;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 18px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.nav-links li a:hover {
+    background: white;
+    color: #103542;
+    transform: scale(1.05);
+}
+
+/* === Conteneur principal === */
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* === Barre de sélection de classe === */
+.selection-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.selection-form {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.selection-form select {
+    width: 250px;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #103542;
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: 0.3s;
+}
+
+.selection-form select:focus {
+    outline: none;
+    border-color: #F87060;
+    box-shadow: 0px 0px 10px rgba(248, 112, 96, 0.5);
+}
+
+.btn-validate {
+    background: linear-gradient(135deg, #F87060, #FF6A50);
+    color: white;
+    font-weight: bold;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-validate:hover {
+    background: linear-gradient(135deg, #FF6A50, #F87060);
+    transform: scale(1.05);
+}
+
+/* === Layout principal === */
+.tirage-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* === Colonnes === */
+.left-column, .right-column {
+    flex: 0 0 48%;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+}
+
+/* === Séparateur visuel colonne gauche */
+.left-column {
+    flex: 0 0 48%;
+    max-width: 48%;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+}
+
+
+/* === Titres colonnes */
+.left-column h2, .right-column h2 {
+    margin-bottom: 20px;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* === Liste des étudiants === */
+.student-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.student-list li {
+    background: #F87060;
+    color: white;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.student-list li:hover {
+    background: #ff5a47;
+}
+
+.no-student {
+    font-style: italic;
+    color: #777;
+    padding: 10px;
+}
+
+/* === Formulaire tirage === */
+.draw-form {
+    margin-bottom: 20px;
+}
+
+.btn-draw {
+    background: #103542;
+    color: white;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-draw:hover {
+    background: #15566b;
+    transform: scale(1.05);
+}
+
+/* === Étudiant sélectionné === */
+.student-selected {
+    background: #F87060;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    animation: fadeInScale 0.5s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* === Formulaire de note === */
+.note-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.note-form input[type="number"] {
+    width: 80%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #103542;
+    border-radius: 8px;
+    background: #f9f9f9;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.note-form input[type="number"]:focus {
+    outline: none;
+    border-color: #F87060;
+    box-shadow: 0px 0px 10px rgba(248, 112, 96, 0.5);
+}
+
+.note-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-absent {
+    background: #FF6A50;
+    color: white;
+    font-weight: bold;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-absent:hover {
+    background: #f94835;
+    transform: scale(1.05);
+}
+
+/* === Messages (erreur & succès) === */
+.message-success, .message-error {
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 12px;
+    text-align: center;
+    margin-top: 15px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.message-success {
+    background: #3ecf8e;
+    color: white;
+}
+
+.message-error {
+    background: #ff4d4d;
+    color: white;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.class-block {
+    background: white;
+    border: 2px solid #103542;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.class-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.class-block h3 {
+    color: #103542;
+    font-size: 22px;
+    border-bottom: 3px solid #F87060;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.class-block ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.student-item {
+    background: #F87060;
+    color: white;
+    margin: 6px 0;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+}
+
+.student-item:hover {
+    background: #ff5a47;
+}
+
+.no-student {
+    font-style: italic;
+    color: #777;
+    padding: 10px;
+}
+
+.reset-buttons {
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-reset {
+    background: #ff4d4d;
+    color: white;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-reset:hover {
+    background: #e03d3d;
+    transform: scale(1.05);
+}
