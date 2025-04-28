@@ -52,7 +52,6 @@ if (session_status() === PHP_SESSION_NONE) {
         <p class="message-error"><?= htmlspecialchars($error) ?></p>
     <?php } ?>
 
-    <!-- ✅ Layout principal -->
     <div class="tirage-layout">
         <!-- ✅ Colonne Gauche : Liste étudiants -->
         <div class="left-column">
@@ -80,7 +79,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 
         <!-- ✅ Colonne Droite : Tirage + Actions -->
-        <div class="right-column">
+        <div class="center-column">
             <h2>Tirage au sort</h2>
 
             <?php if (isset($_SESSION['classeChoisie']) && !empty($_SESSION['classeChoisie'])) { ?>
@@ -90,13 +89,13 @@ if (session_status() === PHP_SESSION_NONE) {
                 </form>
             <?php } ?>
 
-            <?php if ($etudiantTirer) { ?>
+            <?php if ($etudiantTirer && isset($_SESSION['tirageEffectue']) && $_SESSION['tirageEffectue'] === true) { ?>
                 <div class="student-selected">
                     <?= htmlspecialchars($etudiantTirer['firstname'] . " " . $etudiantTirer['surname']) ?>
                 </div>
 
                 <h3>Attribuer une note ou marquer une absence :</h3>
-                <form action="index.php?action=tirage" method="post" class="note-form">
+                <form action="index.php?action=tirage" method="post" class="note-form"> 
                     <input type="hidden" name="form_type" value="assign_grade">
                     <input type="hidden" name="idStudent" value="<?= htmlspecialchars($etudiantTirer['id']) ?>">
                     <input type="number" name="note" min="0" max="20" step="0.5" placeholder="Note">
@@ -106,6 +105,24 @@ if (session_status() === PHP_SESSION_NONE) {
                     </div>
                 </form>
             <?php } ?>
+        </div>
+
+        <div class="right-column">
+            <div class="class-block">
+            <h3>Historique des tirages</h3>
+            <?php if (!empty($history)) { ?>
+                <ul class="history-list">
+                    <?php foreach ($history as $record) { ?>
+                        <li class="history-item">
+                            <?= htmlspecialchars($record['firstname'] . " " . $record['surname']) ?><br>
+                            <small><?= htmlspecialchars(date('d/m/Y H:i', strtotime($record['dateTirage']))) ?></small>
+                        </li>
+                    <?php } ?>
+                </ul>
+            <?php } else { ?>
+                <p class="no-history">Aucun tirage encore effectué.</p>
+            <?php } ?>
+            </div>
         </div>
     </div>
 
@@ -119,6 +136,12 @@ if (session_status() === PHP_SESSION_NONE) {
             <input type="hidden" name="form_type" value="reset_notes">
             <button type="submit" class="btn-reset">Réinitialiser les notes</button>
         </form>
+
+        <form action="index.php?action=tirage" method="post" style="display:inline-block">
+            <input type="hidden" name="form_type" value="reset_history">
+            <button type="submit" class="btn-reset">Réinitialiser l'historique</button>
+        </form>
+
 
         <form action="index.php?action=tirage" method="post" style="display:inline-block;">
             <input type="hidden" name="form_type" value="reset_all">

@@ -2,7 +2,6 @@
 
 include_once "bd.inc.php";
 
-
 class modele_student {
     private $pdo;
 
@@ -30,28 +29,6 @@ class modele_student {
             return $req->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             throw new Exception("Erreur lors de la récupération des étudiants par classe : " . $e->getMessage());
-        }
-    }
-
-    public function addStudent($firstname, $surname, $idClass) {
-        try {
-            $req = $this->pdo->prepare("INSERT INTO student (firstname, surname, idClass) VALUES (:firstname, :surname, :idClass)");
-            $req->bindValue(':firstname', htmlspecialchars($firstname), PDO::PARAM_STR);
-            $req->bindValue(':surname', htmlspecialchars($surname), PDO::PARAM_STR);
-            $req->bindValue(':idClass', $idClass, PDO::PARAM_INT);
-            return $req->execute();
-        } catch (PDOException $e) {
-            throw new Exception("Erreur lors de l'ajout de l'étudiant : " . $e->getMessage());
-        }
-    }
-
-    public function deleteStudent($idStudent) {
-        try {
-            $req = $this->pdo->prepare("DELETE FROM student WHERE id = :idStudent");
-            $req->bindValue(':idStudent', $idStudent, PDO::PARAM_INT);
-            return $req->execute();
-        } catch (PDOException $e) {
-            throw new Exception("Erreur lors de la suppression de l'étudiant : " . $e->getMessage());
         }
     }
 
@@ -123,38 +100,6 @@ class modele_student {
         $req->execute();
     }
 
-    // Récupérer les étudiants déjà passés
-    public function getPassedStudents($nameClass) {
-        $resultat = array();
-
-        try {
-            $req = $this->pdo->prepare("SELECT * FROM student WHERE nameClass = :nameClass AND passage = 1");
-            $req->bindValue(':nameClass', $nameClass, PDO::PARAM_STR);
-            $req->execute();
-
-            $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            throw new Exception("Erreur !: " . $e->getMessage());
-        }
-        return $resultat;
-    }
-
-    // Récupérer les étudiants restants (ceux qui n'ont pas encore été tirés au sort)
-    public function getRemainingStudents($nameClass) {
-        $resultat = array();
-
-        try {
-            $req = $this->pdo->prepare("SELECT * FROM student WHERE nameClass = :nameClass AND passage = 0");
-            $req->bindValue(':nameClass', $nameClass, PDO::PARAM_STR);
-            $req->execute();
-
-            $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            throw new Exception("Erreur !: " . $e->getMessage());
-        }
-        return $resultat;
-    }
-
     // Sélectionner un étudiant aléatoirement dans une classe
     public function drawStudent($classeChoisie) {
         try {
@@ -183,6 +128,6 @@ class modele_student {
             return null;
         }
     }    
-
+    
 }
 ?>

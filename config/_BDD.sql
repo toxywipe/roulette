@@ -14,7 +14,6 @@ INSERT INTO `class` (`nameClass`) VALUES
 ('BTS MCO'),
 ('BTS NDRC');
 
-
 CREATE TABLE `student` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `surname` varchar(60) NOT NULL,
@@ -30,8 +29,6 @@ CREATE TABLE `student` (
     PRIMARY KEY (`id`),
     FOREIGN KEY (`idClass`) REFERENCES `class`(`idClass`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
 
 INSERT INTO `student` (`surname`, `firstname`, `idClass`, `ldap`, `bool`, `passage`, `absence`, `noteaddition`, `notetotal`, `average`) VALUES
 ('OZTAS', 'Efecan', (SELECT idClass FROM class WHERE nameClass = 'BTS SIO'), 0, 0, 0, 0, 0, NULL, NULL),
@@ -62,3 +59,11 @@ INSERT INTO `student` (`surname`, `firstname`, `idClass`, `ldap`, `bool`, `passa
 ('ROBERT', 'Nathan',(SELECT idClass FROM class WHERE nameClass = 'BTS SIO'), 0, 0, 0, 0, 0, NULL, NULL),
 ('SCHAAF', 'Enzo',(SELECT idClass FROM class WHERE nameClass = 'BTS MCO'), 0, 0, 0, 0, 0, NULL, NULL),
 ('SCHMITT', 'Noe',(SELECT idClass FROM class WHERE nameClass = 'BTS SIO'), 0, 0, 0, 0, 0, NULL, NULL);
+
+CREATE TABLE tirage_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    idStudent INT NOT NULL,
+    firstname VARCHAR(100) NOT NULL,
+    surname VARCHAR(100) NOT NULL,
+    dateTirage DATETIME DEFAULT CURRENT_TIMESTAMP
+);

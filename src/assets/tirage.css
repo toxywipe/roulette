@@ -136,35 +136,30 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 40px;
+    gap: 30px;
     margin-top: 30px;
+    flex-wrap: wrap;
 }
 
 /* === Colonnes === */
-.left-column, .right-column {
-    flex: 0 0 48%;
+.left-column, .center-column, .right-column {
+    flex: 0 0 31%;
+    max-width: 31%;
     background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* === Séparateur visuel colonne gauche */
-.left-column {
-    flex: 0 0 48%;
-    max-width: 48%;
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
-}
-
-
-/* === Titres colonnes */
-.left-column h2, .right-column h2 {
+/* Titre dans chaque colonne */
+.left-column h2,
+.center-column h2,
+.right-column h3 {
+    text-align: center;
     margin-bottom: 20px;
-    display: inline-block;
-    padding-bottom: 5px;
+    border-bottom: 3px solid #F87060;
+    padding-bottom: 8px;
+    color: #103542;
 }
 
 /* === Liste des étudiants === */
@@ -214,6 +209,34 @@ footer {
 .btn-draw:hover {
     background: #15566b;
     transform: scale(1.05);
+}
+
+/* Historique des tirages */
+.history-list {
+    list-style: none;
+    padding: 0;
+}
+
+.history-item {
+    background: #F87060;
+    color: white;
+    margin: 6px 0;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+}
+
+.history-item:hover {
+    background: #ff5a47;
+}
+
+.no-history {
+    font-style: italic;
+    color: #777;
+    text-align: center;
+    padding: 10px;
 }
 
 /* === Étudiant sélectionné === */
